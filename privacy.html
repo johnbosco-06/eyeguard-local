@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — EyeGuard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #000; --fg: #fff; --mid: #666; --dim: #1a1a1a;
+    --border: #1f1f1f; --card: #080808; --accent: #fff;
+    --font-d: 'Bebas Neue', sans-serif;
+    --font-m: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: var(--font-m); font-size: 14px;
+    line-height: 1.8; -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-eye { width: 36px; height: 16px; color: #fff; }
+  .nav-name { font-family: var(--font-d); font-size: 20px; letter-spacing: .12em; color: #fff; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--mid); text-decoration: none; transition: color .15s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 80px 32px 60px;
+    border-bottom: 1px solid var(--border);
+    max-width: 860px; margin: 0 auto;
+    animation: fade-up .6s ease both;
+  }
+  .hero-tag {
+    font-size: 9px; letter-spacing: .28em; color: var(--mid);
+    text-transform: uppercase; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-tag::before {
+    content: ''; display: inline-block;
+    width: 24px; height: 1px; background: var(--mid);
+  }
+  .hero-title {
+    font-family: var(--font-d); font-size: clamp(52px, 8vw, 88px);
+    line-height: .92; letter-spacing: .01em; margin-bottom: 24px;
+  }
+  .hero-meta {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    font-size: 10px; letter-spacing: .12em; color: var(--mid);
+    text-transform: uppercase;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-meta span::before { content: '·'; color: #333; }
+  .hero-meta span:first-child::before { display: none; }
+
+  /* ── Layout ── */
+  .layout {
+    max-width: 860px; margin: 0 auto;
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 0; padding: 0 32px 80px;
+  }
+
+  /* ── TOC sidebar ── */
+  .toc {
+    position: sticky; top: 56px; height: fit-content;
+    padding: 40px 24px 40px 0;
+    border-right: 1px solid var(--border);
+  }
+  .toc-title {
+    font-size: 8px; letter-spacing: .28em; color: var(--mid);
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .toc-list a {
+    font-size: 10px; letter-spacing: .08em; color: #333;
+    text-decoration: none; padding: 5px 0;
+    display: block; transition: color .15s;
+    border-left: 2px solid transparent;
+    padding-left: 10px; margin-left: -12px;
+  }
+  .toc-list a:hover { color: #fff; border-left-color: #444; }
+
+  /* ── Content ── */
+  .content { padding: 40px 0 40px 48px; }
+
+  .section { margin-bottom: 56px; animation: fade-up .5s ease both; }
+  .section:nth-child(1) { animation-delay: .05s; }
+  .section:nth-child(2) { animation-delay: .10s; }
+  .section:nth-child(3) { animation-delay: .15s; }
+  .section:nth-child(4) { animation-delay: .20s; }
+  .section:nth-child(5) { animation-delay: .25s; }
+
+  .section-num {
+    font-size: 9px; letter-spacing: .2em; color: var(--mid);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--font-d); font-size: 32px; letter-spacing: .02em;
+    margin-bottom: 20px; line-height: 1;
+  }
+  .section p {
+    color: #aaa; margin-bottom: 14px; font-size: 13px; line-height: 1.85;
+  }
+  .section p strong { color: #fff; font-weight: 500; }
+
+  /* ── Callout box ── */
+  .callout {
+    border-left: 3px solid #fff; padding: 14px 18px;
+    background: var(--dim); margin: 20px 0;
+    font-size: 12px; color: #ccc; line-height: 1.7;
+  }
+  .callout.warn {
+    border-left-color: #888; background: #0d0d0d;
+  }
+  .callout strong { color: #fff; }
+
+  /* ── List ── */
+  .data-list { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 14px 0; }
+  .data-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 12px; color: #999; padding: 8px 12px;
+    border: 1px solid var(--border); border-radius: 2px;
+  }
+  .data-list li .icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+  .data-list li strong { color: #ccc; display: block; font-size: 11px; letter-spacing: .04em; }
+
+  /* ── Table ── */
+  .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  .data-table th {
+    background: var(--dim); color: var(--mid);
+    font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+    padding: 10px 12px; text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 10px 12px; color: #999;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+
+  /* ── Divider ── */
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px; text-align: center;
+    font-size: 10px; color: var(--mid); letter-spacing: .08em;
+    display: flex; flex-direction: column; gap: 10px; align-items: center;
+  }
+  footer a { color: var(--mid); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  .footer-links { display: flex; gap: 20px; }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    nav { padding: 12px 16px; }
+    .hero { padding: 48px 16px 40px; }
+    .layout { grid-template-columns: 1fr; padding: 0 16px 60px; }
+    .toc { display: none; }
+    .content { padding: 32px 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <svg class="nav-eye" viewBox="0 0 32 14" fill="none">
+      <path d="M1 7C5 1 9 0 16 0s11 1 15 7c-4 6-8 7-15 7S5 13 1 7Z" stroke="currentColor" stroke-width="1" fill="none"/>
+      <circle cx="16" cy="7" r="3.4" fill="currentColor"/>
+      <circle cx="16" cy="7" r="1.4" fill="#000"/>
+    </svg>
+    <span class="nav-name">EYEGUARD</span>
+  </a>
+  <div class="nav-links">
+    <a href="privacy.html" class="active">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Legal</div>
+  <h1 class="hero-title">PRIVACY<br/>POLICY</h1>
+  <div class="hero-meta">
+    <span>Effective: March 11, 2026</span>
+    <span>Jurisdiction: India</span>
+    <span>DPDP Act 2023 · GDPR · CalOPPA</span>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc">
+    <p class="toc-title">Contents</p>
+    <ul class="toc-list">
+      <li><a href="#who">Who We Are</a></li>
+      <li><a href="#collect">Data We Collect</a></li>
+      <li><a href="#not-collect">Data We Don't Collect</a></li>
+      <li><a href="#use">How We Use Data</a></li>
+      <li><a href="#storage">Storage & Security</a></li>
+      <li><a href="#third-party">Third Parties</a></li>
+      <li><a href="#rights">Your Rights</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#changes">Changes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+
+    <div class="callout">
+      <strong>TL;DR —</strong> EyeGuard never records your camera. All face detection runs on your device only. We collect only your name and email for login. We never sell your data.
+    </div>
+
+    <!-- WHO WE ARE -->
+    <section class="section" id="who">
+      <p class="section-num">01</p>
+      <h2 class="section-title">WHO WE ARE</h2>
+      <p>EyeGuard is developed and operated by <strong>[Your Full Name]</strong>, an independent developer based in India. For all privacy-related inquiries, contact us at <strong>privacy@eyeguard.app</strong>.</p>
+      <p>This Privacy Policy applies to the EyeGuard mobile application and any associated websites or services.</p>
+    </section>
+
+    <!-- DATA WE COLLECT -->
+    <section class="section" id="collect">
+      <p class="section-num">02</p>
+      <h2 class="section-title">DATA WE COLLECT</h2>
+      <p>We collect the minimum data necessary to operate the app:</p>
+      <ul class="data-list">
+        <li>
+          <span class="icon">👤</span>
+          <div><strong>Name</strong>Provided when you create an account. Used to personalise your experience.</div>
+        </li>
+        <li>
+          <span class="icon">📧</span>
+          <div><strong>Email Address</strong>Provided when you register or sign in. Used for authentication only.</div>
+        </li>
+        <li>
+          <span class="icon">🔑</span>
+          <div><strong>Google Account Info</strong>If you use Google Sign-In: your name, email, and profile photo from your Google account.</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- DATA WE DON'T COLLECT -->
+    <section class="section" id="not-collect">
+      <p class="section-num">03</p>
+      <h2 class="section-title">DATA WE DON'T COLLECT</h2>
+      <div class="callout">
+        <strong>Your camera feed never leaves your device.</strong> All face detection is processed in real time locally using on-device AI. No video is recorded, stored, or transmitted — ever.
+      </div>
+      <ul class="data-list">
+        <li><span class="icon">🚫</span><div><strong>Camera / Video</strong>Processed in real time on-device only. Never recorded or uploaded.</div></li>
+        <li><span class="icon">🚫</span><div><strong>Biometric Data</strong>Eye measurements and facial landmarks are computed and immediately discarded per frame.</div></li>
+        <li><span class="icon">🚫</span><div><strong>Location</strong>We never access your GPS location.</div></li>
+        <li><span class="icon">🚫</span><div><strong>Health Data</strong>Alertness scores are stored locally on your device only — not on our servers.</div></li>
+        <li><span class="icon">🚫</span><div><strong>Contacts / Messages</strong>We never access your contacts, messages, or any other personal data.</div></li>
+      </ul>
+    </section>
+
+    <!-- HOW WE USE DATA -->
+    <section class="section" id="use">
+      <p class="section-num">04</p>
+      <h2 class="section-title">HOW WE USE YOUR DATA</h2>
+      <p>Your data is used exclusively for:</p>
+      <ul class="data-list">
+        <li><span class="icon">✓</span><div><strong>Account Management</strong>Creating and maintaining your account.</div></li>
+        <li><span class="icon">✓</span><div><strong>Authentication</strong>Verifying your identity when you sign in.</div></li>
+        <li><span class="icon">✓</span><div><strong>Account Deletion</strong>Processing your request to delete your account and all associated data.</div></li>
+      </ul>
+      <p>We do <strong>not</strong> use your data for advertising, profiling, analytics, or sale to third parties.</p>
+    </section>
+
+    <!-- STORAGE & SECURITY -->
+    <section class="section" id="storage">
+      <p class="section-num">05</p>
+      <h2 class="section-title">STORAGE & SECURITY</h2>
+      <p>Your account data (name and email) is stored securely by <strong>Google Firebase</strong>, operating data centres compliant with ISO 27001, SOC 2 Type II, and other international security standards. All data is encrypted in transit (TLS 1.3) and at rest (AES-256).</p>
+      <p>All detection data — alertness scores, session logs, and streak history — is stored <strong>only on your device</strong> using browser localStorage and IndexedDB. This data never reaches our servers.</p>
+    </section>
+
+    <!-- THIRD PARTIES -->
+    <section class="section" id="third-party">
+      <p class="section-num">06</p>
+      <h2 class="section-title">THIRD-PARTY SERVICES</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Service</th><th>Purpose</th><th>Their Privacy Policy</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Google Firebase</td><td>Authentication &amp; account storage</td><td>firebase.google.com/support/privacy</td></tr>
+          <tr><td>MediaPipe (Google)</td><td>On-device face landmark detection</td><td>policies.google.com/privacy</td></tr>
+          <tr><td>Google Sign-In</td><td>OAuth authentication</td><td>policies.google.com/privacy</td></tr>
+        </tbody>
+      </table>
+      <p>We do not share your data with any other third parties.</p>
+    </section>
+
+    <!-- YOUR RIGHTS -->
+    <section class="section" id="rights">
+      <p class="section-num">07</p>
+      <h2 class="section-title">YOUR RIGHTS</h2>
+      <p>Under the <strong>Digital Personal Data Protection Act 2023 (India)</strong>, <strong>GDPR (EU)</strong>, and applicable international laws, you have the right to:</p>
+      <ul class="data-list">
+        <li><span class="icon">📋</span><div><strong>Access</strong>Request a copy of your personal data.</div></li>
+        <li><span class="icon">✏️</span><div><strong>Correct</strong>Request correction of inaccurate data.</div></li>
+        <li><span class="icon">🗑️</span><div><strong>Delete</strong>Delete your account via Settings → Avatar → Delete Account. We process within 30 days.</div></li>
+        <li><span class="icon">↩️</span><div><strong>Withdraw Consent</strong>Withdraw consent at any time by deleting your account.</div></li>
+      </ul>
+      <p>To exercise any right, contact us at <strong>privacy@eyeguard.app</strong>. We respond within 30 days.</p>
+    </section>
+
+    <!-- CHILDREN -->
+    <section class="section" id="children">
+      <p class="section-num">08</p>
+      <h2 class="section-title">CHILDREN'S PRIVACY</h2>
+      <p>EyeGuard is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, contact us immediately at <strong>privacy@eyeguard.app</strong> and we will delete it promptly.</p>
+    </section>
+
+    <!-- CHANGES -->
+    <section class="section" id="changes">
+      <p class="section-num">09</p>
+      <h2 class="section-title">CHANGES TO THIS POLICY</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the effective date at the top of this page. Continued use of EyeGuard after changes constitutes acceptance of the updated policy.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <p class="section-num">10</p>
+      <h2 class="section-title">CONTACT</h2>
+      <div class="callout warn">
+        <strong>Privacy Officer:</strong> [Your Full Name]<br/>
+        <strong>Email:</strong> privacy@eyeguard.app<br/>
+        <strong>Address:</strong> [Your Address], India<br/>
+        <strong>Response time:</strong> Within 30 days
+      </div>
+      <p>For EU users: if you are unsatisfied with our response, you may contact your local Data Protection Authority.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+  <p>© 2026 [Your Full Name]. All rights reserved. EyeGuard is developed in India.</p>
+</footer>
+
+</body>
+</html>

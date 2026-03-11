@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms of Service — EyeGuard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #000; --fg: #fff; --mid: #666; --dim: #1a1a1a;
+    --border: #1f1f1f; --card: #080808;
+    --font-d: 'Bebas Neue', sans-serif;
+    --font-m: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: var(--font-m); font-size: 14px;
+    line-height: 1.8; -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-eye { width: 36px; height: 16px; color: #fff; }
+  .nav-name { font-family: var(--font-d); font-size: 20px; letter-spacing: .12em; color: #fff; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--mid); text-decoration: none; transition: color .15s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+  .hero {
+    padding: 80px 32px 60px; border-bottom: 1px solid var(--border);
+    max-width: 860px; margin: 0 auto;
+    animation: fade-up .6s ease both;
+  }
+  .hero-tag {
+    font-size: 9px; letter-spacing: .28em; color: var(--mid);
+    text-transform: uppercase; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-tag::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--mid); }
+  .hero-title { font-family: var(--font-d); font-size: clamp(52px, 8vw, 88px); line-height: .92; letter-spacing: .01em; margin-bottom: 24px; }
+  .hero-meta { display: flex; gap: 32px; flex-wrap: wrap; font-size: 10px; letter-spacing: .12em; color: var(--mid); text-transform: uppercase; }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-meta span::before { content: '·'; color: #333; }
+  .hero-meta span:first-child::before { display: none; }
+
+  .layout {
+    max-width: 860px; margin: 0 auto;
+    display: grid; grid-template-columns: 200px 1fr;
+    padding: 0 32px 80px;
+  }
+
+  .toc {
+    position: sticky; top: 56px; height: fit-content;
+    padding: 40px 24px 40px 0; border-right: 1px solid var(--border);
+  }
+  .toc-title { font-size: 8px; letter-spacing: .28em; color: var(--mid); text-transform: uppercase; margin-bottom: 16px; }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .toc-list a {
+    font-size: 10px; letter-spacing: .08em; color: #333;
+    text-decoration: none; padding: 5px 0 5px 10px;
+    display: block; transition: color .15s;
+    border-left: 2px solid transparent; margin-left: -12px;
+  }
+  .toc-list a:hover { color: #fff; border-left-color: #444; }
+
+  .content { padding: 40px 0 40px 48px; }
+
+  .section { margin-bottom: 56px; animation: fade-up .5s ease both; }
+  .section:nth-child(2) { animation-delay: .05s; }
+  .section:nth-child(3) { animation-delay: .10s; }
+  .section:nth-child(4) { animation-delay: .15s; }
+  .section:nth-child(5) { animation-delay: .20s; }
+  .section:nth-child(6) { animation-delay: .25s; }
+
+  .section-num { font-size: 9px; letter-spacing: .2em; color: var(--mid); text-transform: uppercase; margin-bottom: 8px; }
+  .section-title { font-family: var(--font-d); font-size: 32px; letter-spacing: .02em; margin-bottom: 20px; line-height: 1; }
+  .section p { color: #aaa; margin-bottom: 14px; font-size: 13px; line-height: 1.85; }
+  .section p strong { color: #fff; font-weight: 500; }
+
+  .callout {
+    border-left: 3px solid #fff; padding: 14px 18px;
+    background: var(--dim); margin: 20px 0;
+    font-size: 12px; color: #ccc; line-height: 1.7;
+  }
+  .callout.danger {
+    border-left-color: #fff;
+    background: #0d0d0d;
+  }
+  .callout strong { color: #fff; }
+
+  .rule-list { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 14px 0; }
+  .rule-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 12px; color: #999; padding: 8px 12px;
+    border: 1px solid var(--border); border-radius: 2px;
+  }
+  .rule-list li .icon { flex-shrink: 0; font-size: 13px; }
+  .rule-list li strong { color: #ccc; display: block; font-size: 11px; letter-spacing: .04em; }
+
+  .caps-block {
+    font-size: 11px; color: #777; line-height: 1.9;
+    border: 1px solid var(--border); padding: 16px 18px;
+    background: var(--dim); margin: 16px 0;
+    letter-spacing: .02em;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px; text-align: center;
+    font-size: 10px; color: var(--mid); letter-spacing: .08em;
+    display: flex; flex-direction: column; gap: 10px; align-items: center;
+  }
+  footer a { color: var(--mid); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  .footer-links { display: flex; gap: 20px; }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 12px 16px; }
+    .hero { padding: 48px 16px 40px; }
+    .layout { grid-template-columns: 1fr; padding: 0 16px 60px; }
+    .toc { display: none; }
+    .content { padding: 32px 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <svg class="nav-eye" viewBox="0 0 32 14" fill="none">
+      <path d="M1 7C5 1 9 0 16 0s11 1 15 7c-4 6-8 7-15 7S5 13 1 7Z" stroke="currentColor" stroke-width="1" fill="none"/>
+      <circle cx="16" cy="7" r="3.4" fill="currentColor"/>
+      <circle cx="16" cy="7" r="1.4" fill="#000"/>
+    </svg>
+    <span class="nav-name">EYEGUARD</span>
+  </a>
+  <div class="nav-links">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html" class="active">Terms</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Legal</div>
+  <h1 class="hero-title">TERMS OF<br/>SERVICE</h1>
+  <div class="hero-meta">
+    <span>Effective: March 11, 2026</span>
+    <span>Jurisdiction: India</span>
+    <span>IT Act 2000 · Consumer Protection Act 2019</span>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc">
+    <p class="toc-title">Contents</p>
+    <ul class="toc-list">
+      <li><a href="#acceptance">Acceptance</a></li>
+      <li><a href="#description">Description</a></li>
+      <li><a href="#safety">Safety Disclaimer</a></li>
+      <li><a href="#eligibility">Eligibility</a></li>
+      <li><a href="#accounts">Accounts</a></li>
+      <li><a href="#use">Permitted Use</a></li>
+      <li><a href="#ip">Intellectual Property</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#indemnification">Indemnification</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#governing">Governing Law</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+
+    <div class="callout">
+      <strong>Summary —</strong> Use EyeGuard as a supplementary tool only. Never rely on it as your sole safety measure while driving or operating machinery. We are not liable for false readings. You own your data. Indian law governs these terms.
+    </div>
+
+    <!-- ACCEPTANCE -->
+    <section class="section" id="acceptance">
+      <p class="section-num">01</p>
+      <h2 class="section-title">ACCEPTANCE OF TERMS</h2>
+      <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User") and <strong>[Your Full Name]</strong> ("Developer") governing your use of the EyeGuard application ("App"). By accessing or using EyeGuard, you confirm that you have read, understood, and agree to be bound by these Terms.</p>
+      <p>If you do not agree to these Terms, do not use the App.</p>
+    </section>
+
+    <!-- DESCRIPTION -->
+    <section class="section" id="description">
+      <p class="section-num">02</p>
+      <h2 class="section-title">DESCRIPTION OF SERVICE</h2>
+      <p>EyeGuard is a real-time drowsiness and eye fatigue monitoring application that uses your device's front camera and artificial intelligence to detect signs of eye strain, fatigue, and reduced alertness. The App provides visual, audio, and notification alerts when drowsiness is detected.</p>
+      <p>EyeGuard is provided free of charge. The Developer reserves the right to introduce paid features in the future, with adequate notice to users.</p>
+    </section>
+
+    <!-- SAFETY DISCLAIMER -->
+    <section class="section" id="safety">
+      <p class="section-num">03</p>
+      <h2 class="section-title">SAFETY DISCLAIMER</h2>
+      <div class="callout danger">
+        <strong>⚠ CRITICAL WARNING</strong><br/><br/>
+        EyeGuard is a <strong>supplementary alertness tool only</strong>. It is NOT a substitute for adequate sleep, rest, or sound judgment.<br/><br/>
+        <strong>DO NOT rely solely on EyeGuard to determine whether you are safe to drive, operate machinery, or perform any safety-critical task.</strong><br/><br/>
+        The Developer expressly disclaims all liability for accidents, injuries, or damages arising from reliance on this App.
+      </div>
+      <p>Specifically, you acknowledge that:</p>
+      <ul class="rule-list">
+        <li><span class="icon">⚠</span><div><strong>False Negatives</strong>EyeGuard may fail to detect drowsiness when it is present.</div></li>
+        <li><span class="icon">⚠</span><div><strong>False Positives</strong>EyeGuard may detect drowsiness when you are fully alert.</div></li>
+        <li><span class="icon">⚠</span><div><strong>Environmental Factors</strong>Accuracy depends on lighting, camera angle, glasses, and other conditions beyond our control.</div></li>
+        <li><span class="icon">⚠</span><div><strong>No Guarantee</strong>The App does not guarantee detection of all drowsiness events.</div></li>
+      </ul>
+    </section>
+
+    <!-- ELIGIBILITY -->
+    <section class="section" id="eligibility">
+      <p class="section-num">04</p>
+      <h2 class="section-title">ELIGIBILITY</h2>
+      <ul class="rule-list">
+        <li><span class="icon">✓</span><div>You must be at least <strong>13 years of age</strong> to use this App.</div></li>
+        <li><span class="icon">✓</span><div>If you are under 18, your parent or guardian must have consented to these Terms on your behalf.</div></li>
+        <li><span class="icon">✓</span><div>By using the App you represent that you meet these requirements.</div></li>
+      </ul>
+    </section>
+
+    <!-- ACCOUNTS -->
+    <section class="section" id="accounts">
+      <p class="section-num">05</p>
+      <h2 class="section-title">USER ACCOUNTS</h2>
+      <ul class="rule-list">
+        <li><span class="icon">🔒</span><div><strong>Security</strong>You are responsible for maintaining the confidentiality of your account credentials.</div></li>
+        <li><span class="icon">📋</span><div><strong>Accuracy</strong>You must provide accurate and complete registration information.</div></li>
+        <li><span class="icon">⚡</span><div><strong>Unauthorised Access</strong>Notify us immediately at privacy@eyeguard.app of any unauthorised use of your account.</div></li>
+        <li><span class="icon">🗑️</span><div><strong>Deletion</strong>You may delete your account at any time via Settings → Avatar → Delete Account.</div></li>
+      </ul>
+    </section>
+
+    <!-- PERMITTED USE -->
+    <section class="section" id="use">
+      <p class="section-num">06</p>
+      <h2 class="section-title">PERMITTED USE</h2>
+      <p>You may use EyeGuard for personal, non-commercial purposes. You agree <strong>not</strong> to:</p>
+      <ul class="rule-list">
+        <li><span class="icon">✗</span><div>Reverse engineer, decompile, or disassemble the App</div></li>
+        <li><span class="icon">✗</span><div>Use the App for any unlawful purpose under Indian or international law</div></li>
+        <li><span class="icon">✗</span><div>Attempt to gain unauthorised access to any part of the App or its infrastructure</div></li>
+        <li><span class="icon">✗</span><div>Use the App in any way that could damage, disable, or impair its functionality</div></li>
+        <li><span class="icon">✗</span><div>Redistribute, resell, or sublicense the App or any part of it</div></li>
+        <li><span class="icon">✗</span><div>Use automated tools to scrape, crawl, or extract data from the App</div></li>
+      </ul>
+    </section>
+
+    <!-- INTELLECTUAL PROPERTY -->
+    <section class="section" id="ip">
+      <p class="section-num">07</p>
+      <h2 class="section-title">INTELLECTUAL PROPERTY</h2>
+      <p>All content, code, design, algorithms, and materials within EyeGuard are the exclusive intellectual property of <strong>[Your Full Name]</strong> and are protected under the <strong>Copyright Act, 1957 (India)</strong> and applicable international copyright treaties including the Berne Convention.</p>
+      <p>You may not copy, modify, distribute, or create derivative works without explicit written permission from the Developer.</p>
+      <p>EyeGuard uses open-source components (React, MediaPipe, Capacitor, Firebase SDK) under their respective licences. This does not affect the Developer's ownership of original EyeGuard code and assets.</p>
+    </section>
+
+    <!-- LIMITATION OF LIABILITY -->
+    <section class="section" id="liability">
+      <p class="section-num">08</p>
+      <h2 class="section-title">LIMITATION OF LIABILITY</h2>
+      <div class="caps-block">
+        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, [YOUR FULL NAME] SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO PERSONAL INJURY, PROPERTY DAMAGE, LOSS OF DATA, OR LOSS OF PROFITS, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF EYEGUARD, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+      </div>
+      <p>The Developer's total liability to you for any claims arising under these Terms shall not exceed <strong>INR 1,000 (Indian Rupees One Thousand)</strong> or the amount you paid for the App in the past 12 months, whichever is greater.</p>
+    </section>
+
+    <!-- INDEMNIFICATION -->
+    <section class="section" id="indemnification">
+      <p class="section-num">09</p>
+      <h2 class="section-title">INDEMNIFICATION</h2>
+      <p>You agree to indemnify, defend, and hold harmless <strong>[Your Full Name]</strong> from and against any claims, damages, losses, costs, and expenses (including reasonable legal fees) arising from:</p>
+      <ul class="rule-list">
+        <li><span class="icon">→</span><div>Your use of the App in violation of these Terms</div></li>
+        <li><span class="icon">→</span><div>Your violation of any third-party rights</div></li>
+        <li><span class="icon">→</span><div>Any claim that your use of the App caused damage to a third party</div></li>
+        <li><span class="icon">→</span><div>Your provision of inaccurate account information</div></li>
+      </ul>
+    </section>
+
+    <!-- TERMINATION -->
+    <section class="section" id="termination">
+      <p class="section-num">10</p>
+      <h2 class="section-title">TERMINATION</h2>
+      <p>We may suspend or terminate your access to the App at any time, with or without notice, for conduct that we believe violates these Terms or is harmful to other users, the Developer, or third parties.</p>
+      <p>You may terminate your account at any time by using the <strong>Delete Account</strong> feature within the App. Upon termination, your account data will be deleted from our servers within 30 days.</p>
+    </section>
+
+    <!-- GOVERNING LAW -->
+    <section class="section" id="governing">
+      <p class="section-num">11</p>
+      <h2 class="section-title">GOVERNING LAW</h2>
+      <ul class="rule-list">
+        <li><span class="icon">⚖</span><div><strong>Jurisdiction</strong>These Terms are governed by the laws of India, including the IT Act 2000 and Consumer Protection Act 2019.</div></li>
+        <li><span class="icon">🤝</span><div><strong>Dispute Resolution</strong>Disputes shall first be attempted through good-faith negotiation for 30 days.</div></li>
+        <li><span class="icon">🏛</span><div><strong>Courts</strong>If negotiation fails, disputes shall be subject to the exclusive jurisdiction of the courts of India.</div></li>
+        <li><span class="icon">📜</span><div><strong>Severability</strong>If any provision is found unenforceable, remaining provisions continue in full force.</div></li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <p class="section-num">12</p>
+      <h2 class="section-title">CONTACT</h2>
+      <div class="callout">
+        <strong>Developer:</strong> [Your Full Name]<br/>
+        <strong>Email:</strong> privacy@eyeguard.app<br/>
+        <strong>Address:</strong> [Your Address], India<br/>
+        <strong>Response time:</strong> Within 30 days
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+  <p>© 2026 [Your Full Name]. All rights reserved. EyeGuard is developed in India.</p>
+</footer>
+
+</body>
+</html>
